@@ -12,6 +12,7 @@
   <div class="col">
     <hr>
 <!--Tabla resultados-->
+    <shared-loading-spinner *ngIf="isLoading" loadingText="Buscando Región..."></shared-loading-spinner>
     <countries-table [countries]="countries"></countries-table>
   </div>
 </div>
