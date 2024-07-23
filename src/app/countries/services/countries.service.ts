@@ -13,24 +13,20 @@ export class CountriesService {
 
   searchCapital(term: string): Observable<Country[]> {
     const url = `${this.apiUrl}/capital/${term}`;
-    return this.httpClient.get<Country[]>(url).pipe(
-      catchError(() => {
-        return of([]);
-      })
-    );
+    return this.invokeUrl(url);
   }
 
   searchCountry(term: string): Observable<Country[]> {
     const url = `${this.apiUrl}/name/${term}`;
-    return this.httpClient.get<Country[]>(url).pipe(
-      catchError(() => {
-        return of([]);
-      })
-    );
+    return this.invokeUrl(url);
   }
 
   searchRegion(term: string): Observable<Country[]> {
     const url = `${this.apiUrl}/region/${term}`;
+    return this.invokeUrl(url);
+  }
+
+  private invokeUrl(url: string): Observable<Country[]> {
     return this.httpClient.get<Country[]>(url).pipe(
       catchError(() => {
         return of([]);
